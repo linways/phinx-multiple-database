@@ -17,15 +17,15 @@ class MigrateCommand extends Command{
              ->setDescription("To run migrations against required databases.")
              ->setHelp("
 Examples:
-`<fg=blue;options=bold>db:migrate PRO</>` For running migrations for a tenant with code PRO
-`<fg=blue;options=bold>db:migrate --all</>` For running migrations on all tenants using nucleus
+`<fg=blue;options=bold>db:migrate TENANT1</>` For running migrations for a tenant with code TENANT1
+`<fg=blue;options=bold>db:migrate --all</>` For running migrations on all tenants
 `<fg=blue;options=bold>db:migrate --db=pro_db -u db_username -p</>` For running migrations on a specific database
 `<fg=blue;options=bold>db:migrate --all --target=20171018082229</>` For migrating till a particular migration.
              ")
-             ->addArgument('tenant_code', InputArgument::OPTIONAL, 'Tenant code for migration. Works only with nucleus.')
-             ->addOption('all','a', InputOption::VALUE_NONE, 'For executing migrations against all tenants in nucleus.')
-             ->addOption('db', 'd', InputOption::VALUE_REQUIRED, 'for executing migrations against a single db (Nucleus not required)')
-             ->addOption('target', 't', InputOption::VALUE_REQUIRED, 'If you want to run upto a particular migration. Target version is the time stamp in the migration file name (first part of the name)')
+             ->addArgument('tenant_code', InputArgument::OPTIONAL, 'Tenant code for migration. Works only if TENANT_DB env vars are set.')
+             ->addOption('all','a', InputOption::VALUE_NONE, 'For executing migrations against all tenants.Works only if TENANT_DB env vars are set.')
+             ->addOption('db', 'd', InputOption::VALUE_REQUIRED, 'for executing migrations against a single db')
+             ->addOption('target', 't', InputOption::VALUE_REQUIRED, 'If you want to run upto a particular migration. Target version is the time stamp in the migration file name')
              ->addOption('host', null, InputOption::VALUE_REQUIRED, 'Database host name/ip.', 'localhost')
              ->addOption('user', 'u', InputOption::VALUE_REQUIRED, 'Database user name.', 'root')
              ->addOption('pass', 'p', InputOption::VALUE_NONE, 'Prompt for database password. <comment>[default: "root"]</comment>');
@@ -52,7 +52,7 @@ Examples:
         try{
           foreach ($dbsToMigrate as $db) {
             $output->writeln('<question>============= Migrating :<options=bold;fg=black;bg=yellow>'.$db->tenantDb .' ['. $db->code.']</>==========</question>');
-            $response = MigrateService::migrateDb($db->tenantDb, $target, $db->dbHost, $db->dbUsername, $db->dbPassword);
+            $response = MigrateService::migrateDb($db->name, $target, $db->host, $db->username, $db->password);
             print_r($response);
             $output->writeln('<options=bold;fg=black;bg=green>✓ DONE</>');
           }

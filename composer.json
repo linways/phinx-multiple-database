@@ -1,0 +1,20 @@
+{
+  "name": "linways/cli",
+  "authors": [
+    {
+      "name": "Rohith",
+      "email": "rohith@linways.com"
+    }
+  ],
+  "require": {
+    "symfony/console": "^3.4",
+    "symfony/dotenv": "^3.4",
+    "robmorgan/phinx": "^0.10.5",
+    "symfony/yaml": "^3.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "linways\\cli\\": "src"
+    }
+  }
+}

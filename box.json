@@ -1,0 +1,19 @@
+{
+  "chmod": "0755",
+  "directories": [
+    "src"
+  ],
+  "files": [
+    "cli",
+    "MigrationCustom.template.php.dist"
+  ],
+  "finder": [{
+    "name": ["*.php", "*.json"],
+    "exclude": ["Tests", "tests"],
+    "in": "vendor"
+  }],
+  "git-version": "package_version",
+  "main": "cli",
+  "output": "lcli.phar",
+  "stub": true
+}

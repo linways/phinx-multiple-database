@@ -1,0 +1,12 @@
+vendor
+composer.lock
+.buildpath
+.project
+.settings
+.idea
+.idea/*
+.idea/workspace.xml
+.phpintel/*
+.phpintel/
+.phpintel
+.cli.env

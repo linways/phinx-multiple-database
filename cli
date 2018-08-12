@@ -1,0 +1,26 @@
+#!/usr/bin/env php
+
+<?php
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+use Symfony\Component\Console\Application;
+use linways\cli\command\db\CreateMigrationCommand;
+// use linways\cli\command\db\MigrateCommand;
+// use linways\cli\command\db\MigrateFakeCommand;
+use Symfony\Component\Dotenv\Dotenv;
+
+
+error_reporting(E_ALL ^ E_NOTICE);
+
+$app = new Application();
+$dotenv = new Dotenv();
+try{
+    $dotenv->load('.cli.env');
+}catch(\Exception $e){
+    putenv("PHINX_CONF=" . __DIR__ . '/phinx.conf');
+}
+$app->add(new CreateMigrationCommand());
+// $app->add(new MigrateCommand());
+// $app->add(new MigrateFakeCommand());
+$app->run();

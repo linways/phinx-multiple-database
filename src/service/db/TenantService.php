@@ -2,32 +2,11 @@
 
 namespace linways\cli\service\db;
 
+use linways\cli\utils\DbConnector;
 use PDO;
 
-class TenantService
+class TenantService extends DbConnector
 {
-    private $connection;
-
-    /**
-     * TenantService constructor.
-     * @param $dbDetails  object    { name, username, password, host, port }
-     */
-    public function __construct($dbDetails)
-    {
-        try {
-            $this->connection = new PDO("mysql:host=$dbDetails->host;dbname=$dbDetails->name", $dbDetails->username, $dbDetails->password);
-            $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        }
-        catch(PDOException $e)
-        {
-            error_log($e->getMessage());
-        }
-    }
-
-    public function __destruct()
-    {
-        $this->connection = null;
-    }
 
     /**
      * Returns  all Tenant(s)

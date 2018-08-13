@@ -31,12 +31,14 @@ class MigrationUtils
         return $pass;
     }
 
+
     /**
      * returns an array of database details for running migrations migrations
-     * @param  string $tenantCode
-     * @param  boolean $migrateAll true if migrating all databases
-     * @param  object $db
-     * @return Tenant[]
+     * @param $tenantCode       Tenant Code
+     * @param $migrateAll       True if migrating all databases
+     * @param $db               Name of the database
+     * @return \StdClass[]      [{name, username, password, host, port}]
+     * @throws \Exception
      */
     public static function getDbDetailsForMigration($tenantCode, $migrateAll, $db)
     {

@@ -22,10 +22,10 @@ Examples:
 `<fg=blue;options=bold>db:migrate --db=pro_db -u db_username -p</>` For running migrations on a specific database
 `<fg=blue;options=bold>db:migrate --all --target=20171018082229</>` For migrating till a particular migration.
              ")
-             ->addArgument('tenant_code', InputArgument::OPTIONAL, 'Tenant code for migration. Works only if TENANT_DB env vars are set.')
-             ->addOption('all','a', InputOption::VALUE_NONE, 'For executing migrations against all tenants.Works only if TENANT_DB env vars are set.')
-             ->addOption('db', 'd', InputOption::VALUE_REQUIRED, 'for executing migrations against a single db')
-             ->addOption('target', 't', InputOption::VALUE_REQUIRED, 'If you want to run upto a particular migration. Target version is the time stamp in the migration file name')
+             ->addArgument('tenant_code', InputArgument::OPTIONAL, 'Tenant code for migration.(Works only if TENANT_DB env vars are set.)')
+             ->addOption('all','a', InputOption::VALUE_NONE, 'For executing migrations against all tenants. (Works only if TENANT_DB env vars are set.)')
+             ->addOption('db', 'd', InputOption::VALUE_REQUIRED, 'For executing migrations against a single db.')
+             ->addOption('target', 't', InputOption::VALUE_REQUIRED, 'If you want to run upto a particular migration. Target version is the time stamp in the migration file name.')
              ->addOption('host', null, InputOption::VALUE_REQUIRED, 'Database host name/ip.', 'localhost')
              ->addOption('user', 'u', InputOption::VALUE_REQUIRED, 'Database user name.', 'root')
              ->addOption('pass', 'p', InputOption::VALUE_NONE, 'Prompt for database password. <comment>[default: "root"]</comment>');

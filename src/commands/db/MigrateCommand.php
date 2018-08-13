@@ -51,10 +51,11 @@ Examples:
         $dbsToMigrate = MigrationUtils::getDbDetailsForMigration($tenantCode, $migrateAll, $db);
         try{
           foreach ($dbsToMigrate as $db) {
-            $output->writeln('<question>============= Migrating :<options=bold;fg=black;bg=yellow>'.$db->tenantDb .' ['. $db->code.']</>==========</question>');
+            $output->writeln('<question>============= Migrating :<options=bold;fg=black;bg=yellow>'.$db->name .' ['. $db->code.']</>==========</question>');
             $response = MigrateService::migrateDb($db->name, $target, $db->host, $db->username, $db->password);
             print_r($response);
             $output->writeln('<options=bold;fg=black;bg=green>✓ DONE</>');
+            flush();
           }
         }catch(\Exception $e){
           $output->writeln('<error>'. $e->getMessage(). '</error>');

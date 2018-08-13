@@ -3,15 +3,17 @@ namespace linways\cli\service\db;
 use Phinx\Console\PhinxApplication;
 
 class MigrateService{
-  /**
-   * migrate a single database using username and password
-   * @param  string $dbName   [description]
-   * @param  string $target   target migration version
-   * @param  string $host     [description]
-   * @param  string $username [description]
-   * @param  string $password [description]
-   * @return [type]           [description]
-   */
+
+    /**
+     * migrate a single database using username and password
+     * @param $dbName
+     * @param $target
+     * @param $host
+     * @param $username
+     * @param $password
+     * @return string
+     * @throws \Exception
+     */
   public static function migrateDb($dbName, $target, $host, $username, $password){
     $app = new PhinxApplication();
     $_SERVER['PHINX_DBNAME'] = $dbName;

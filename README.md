@@ -5,7 +5,10 @@ But it does not support running same migrations for different databases. This wi
 really helpful in the case of multi-database multi-tenant applications.
 This is a simple "hack" to use Phinx to easily run same migrations over multiple databases.
 
+![Screenshot](phinx-multi-db-1.gif)
 
+This is a part of Linways CLI (a command line tool we use internally for managing development and deployment of Linways AMS) ported out of Linways Frameworks.
+We use this tool for deploying database migrations on hundreds of databases on multiple servers. 
 ### Features
 * Effortlessly run same migrations on multiple databases. 
 * Fake migrations on multiple databases.
@@ -115,3 +118,10 @@ This table will be used for storing tenant information.
 `db:migrate-fake 20171018082229_scheduler_migrations --all ` - For faking 'scheduler_migrations' on all tenants using nucleus  
 `db:migrate-fake 20171018082229_scheduler_migrations --db=pro_db -u db_username -p ` - For faking 'scheduler_migrations' on a specific database  
 `db:migrate-fake 20171018082229_scheduler_migrations TENANT1 --revert` - For removing the particular migration from migration table. Effectively setting this migration as 'not migrated'    
+               
+## Todo
+- [ ] Add create tenant command
+- [ ] Encrypt DB password in the tenant table
+- [ ] Migrate tests from original implementation of lcli (Linways Cli)
+- [ ] Separate source code and example.
+- [ ] Option to specify port number

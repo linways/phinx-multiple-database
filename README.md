@@ -5,6 +5,7 @@ But it does not support running same migrations for different databases. This wi
 really helpful in the case of multi-database multi-tenant applications.
 This is a simple "hack" to use Phinx to easily run same migrations over multiple databases.
 
+![screenshot](phinx-multi-db.gif)
 
 ## Setup
 

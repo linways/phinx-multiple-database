@@ -25,7 +25,6 @@ class MigrateService{
       throw new \Exception("Environment variable `PHINX_CONF` not found. define it in `.cli.env` file on project root.");
 
     $wrap = new \Phinx\Wrapper\TextWrapper($app, array(
-                // 'config_path' => __DIR__. '/../../../phinx.yml',
                 'parser' => 'yaml'
     ));
     try{

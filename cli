@@ -20,8 +20,12 @@ try{
 }catch(\Exception $e){
    error_log('No .cli.env file found. Loading default values');
 }
-if(empty(getenv("PHINX_CONF")))
-    putenv("PHINX_CONF=" . __DIR__ . '/phinx.yml');
+if(empty(getenv("PHINX_CONF"))){
+     if(Phar::running(true))
+         putenv("PHINX_CONF=" . dirname(Phar::running(false))  . '/phinx.yml');
+     else
+         putenv("PHINX_CONF=" . __DIR__ . '/phinx.yml');
+}
 $app->add(new CreateMigrationCommand());
 $app->add(new MigrateCommand());
 $app->add(new MigrateFakeCommand());

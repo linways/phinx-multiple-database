@@ -5,11 +5,11 @@
   ],
   "files": [
     "cli",
-    "MigrationCustom.template.php.dist"
+    "vendor/robmorgan/phinx/src/Phinx/Migration/Migration.template.php.dist"
   ],
   "finder": [{
     "name": ["*.php", "*.json"],
-    "exclude": ["Tests", "tests"],
+    "exclude": ["tests"],
     "in": "vendor"
   }],
   "git-version": "package_version",

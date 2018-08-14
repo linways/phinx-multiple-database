@@ -9,7 +9,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
-use linways\cli\service\db\MigrateService;
+use linways\cli\service\MigrateService;
 
 class MigrateCommand extends Command{
     protected function configure(){

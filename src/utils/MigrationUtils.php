@@ -9,7 +9,7 @@ use Symfony\Component\Console\Question\Question;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\StreamOutput;
-use linways\cli\service\db\TenantService;
+use linways\cli\service\TenantService;
 
 class MigrationUtils
 {
@@ -44,11 +44,13 @@ class MigrationUtils
     {
         $dbsToMigrate = [];
         if (!empty($tenantCode)) {
+            //TODO: add option to encrypt the db password when storing in the tenant database
             //get the details about tenant
             $tenantService = new TenantService(self::getDbDetails());
             $singleDb = $tenantService->getTenantByTenantCode($tenantCode);
             $dbsToMigrate[] = $singleDb;
         } else if (!empty($migrateAll)) {
+            //TODO: add option to encrypt the db password when storing in the tenant database
             //get all tenant info
             $tenantService = new TenantService(self::getDbDetails());
             $dbsToMigrate = $tenantService->getAllTenants();

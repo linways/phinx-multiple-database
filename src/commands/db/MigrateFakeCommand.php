@@ -2,13 +2,14 @@
 
 namespace linways\cli\command\db;
 
-use linways\cli\service\db\MigrateFakeService;
-use linways\cli\utls\MigrationUtils;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
+use linways\cli\service\MigrateFakeService;
+use linways\cli\utls\MigrationUtils;
+
 
 class MigrateFakeCommand extends Command
 {

@@ -7,13 +7,13 @@ require_once __DIR__ . '/vendor/autoload.php';
 use Symfony\Component\Console\Application;
 use linways\cli\command\db\CreateMigrationCommand;
 use linways\cli\command\db\MigrateCommand;
- use linways\cli\command\db\MigrateFakeCommand;
+use linways\cli\command\db\MigrateFakeCommand;
+use linways\cli\command\tenant\InitCommand;
 use Symfony\Component\Dotenv\Dotenv;
-
 
 error_reporting(E_ALL ^ E_NOTICE);
 
-$app = new Application();
+$app = new Application('Linways CLI', 'v0.1');
 $dotenv = new Dotenv();
 try{
     $dotenv->load('.cli.env');
@@ -29,4 +29,5 @@ if(empty(getenv("PHINX_CONF"))){
 $app->add(new CreateMigrationCommand());
 $app->add(new MigrateCommand());
 $app->add(new MigrateFakeCommand());
+$app->add(new InitCommand());
 $app->run();

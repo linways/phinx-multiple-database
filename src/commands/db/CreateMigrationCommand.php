@@ -2,7 +2,6 @@
 
 namespace linways\cli\command\db;
 
-use Phar;
 use Exception;
 use linways\cli\utls\MigrationUtils;
 use Phinx\Console\PhinxApplication;
@@ -31,11 +30,6 @@ Examples:
         $app = new PhinxApplication();
         $command = ['create'];
         $command += ["name" => $migrationName];
-        // For adding custom Migration template
-        // if(Phar::running(true))
-        //   $command += ["--template" => Phar::running(true) ."/MigrationCustom.template.php.dist"];
-        // else
-        //   $command += ["--template" => "./MigrationCustom.template.php.dist"];
         try {
             $response = MigrationUtils::executeRun($command, $app);
             print_r($response);

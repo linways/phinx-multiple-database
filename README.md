@@ -13,7 +13,7 @@ We use this tool for deploying database migrations on hundreds of databases on m
 * Effortlessly run same migrations on multiple databases. 
 * Fake migrations on multiple databases.
 ## Setup
-1. Download `lcli.phar` from the [release page](https://github.com/linways/phinx-multiple-database/releases).  
+1. Download `lcli.phar` from the [latest release](https://github.com/linways/phinx-multiple-database/releases/latest).  
 2. Create `phinx.yml` in the project root folder with the following content.
     ```yaml
     paths:

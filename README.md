@@ -114,7 +114,7 @@ This table will be used for storing tenant information.
 
 **Sample Usages:**
 
-`db:migrate-fake 20171018082229_scheduler_migrations TENANT1` - For faking 'scheduler_migrations' for a tenant with code PRO  
+`db:migrate-fake 20171018082229_scheduler_migrations TENANT1` - For faking 'scheduler_migrations' for a tenant with code TENANT1  
 `db:migrate-fake 20171018082229_scheduler_migrations --all ` - For faking 'scheduler_migrations' on all tenants using nucleus  
 `db:migrate-fake 20171018082229_scheduler_migrations --db=pro_db -u db_username -p ` - For faking 'scheduler_migrations' on a specific database  
 `db:migrate-fake 20171018082229_scheduler_migrations TENANT1 --revert` - For removing the particular migration from migration table. Effectively setting this migration as 'not migrated'    
